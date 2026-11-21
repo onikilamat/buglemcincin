@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buğlem Çinçin</title>
+<meta name="description" content="Buğlem Çinçin — textile and fashion designer. Print, weave, knit, collections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--bg:#fff;--dot:#111}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:14px/1.45 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+
+/* logo, fixed top centre, dotted outline lettering */
+.logo{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:30;display:block;line-height:0}
+.logo svg{height:30px;width:auto;overflow:visible}
+.logo text{font:400 40px "Archivo Black",Arial,sans-serif;letter-spacing:2px;fill:none;stroke:var(--dot);stroke-width:2.1;stroke-dasharray:0 2.7;stroke-linecap:round}
+
+/* collage */
+#wall{position:relative;width:100%}
+#wall img{position:absolute;display:block;height:auto;opacity:0;transition:opacity .6s}
+#wall img.in{opacity:1}
+
+/* bottom nav: four dotted icons with hover labels */
+nav{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:40;display:flex;gap:34px}
+nav button{position:relative;width:40px;height:40px;padding:0;border:0;background:none;cursor:pointer;color:var(--dot)}
+nav svg{width:40px;height:40px;overflow:visible}
+nav svg *{fill:none;stroke:currentColor;stroke-width:2.2;stroke-dasharray:0 4.6;stroke-linecap:round;stroke-linejoin:round}
+nav svg .dot{stroke-dasharray:none;fill:currentColor;stroke:none}
+nav span{position:absolute;left:50%;bottom:48px;transform:translateX(-50%);font-size:10px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none}
+nav button:hover span,nav button:focus-visible span,nav button[aria-expanded=true] span{opacity:1}
+nav button:focus-visible{outline:1px dotted var(--ink);outline-offset:6px;border-radius:50%}
+
+/* text overlay: blurred page, centred text */
+.panel{position:fixed;inset:0;z-index:35;display:flex;align-items:center;justify-content:center;padding:90px 24px 110px;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;cursor:pointer}
+.panel.open{opacity:1;visibility:visible}
+.panel div{max-width:440px;text-align:center;cursor:auto}
+.panel p{margin:0 0 1.1em}
+.panel a{color:inherit;text-decoration:none}
+.panel a:hover{text-decoration:underline}
+
+@media (max-width:700px){
+ .logo svg{height:22px}
+ nav{gap:24px;bottom:16px}
+ nav button,nav svg{width:34px;height:34px}
+ body{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){#wall img,.panel{transition:none}}
+</style>
+</head>
+<body>
+
+<a class="logo" href="/" aria-label="Buğlem Çinçin — home">
+ <svg viewBox="0 0 470 46" role="img" aria-hidden="true"><text x="0" y="38">BUĞLEM ÇİNÇİN</text></svg>
+</a>
+
+<main id="wall" aria-label="Selected work"></main>
+
+<!-- ── EDIT TEXTS HERE ───────────────────────────────── -->
+<section class="panel" id="about" aria-label="About" hidden>
+ <div>
+  <p>Buğlem Çinçin is a textile and fashion designer based in Istanbul.</p>
+  <p>Her work moves between hand-painted print, weave, knit and garment, from surface pattern and fabric development to full collections, styling and image.</p>
+  <p>A graduate of Marmara University, she has worked across textile design, sustainable upcycled collections and freelance creative projects.</p>
+ </div>
+</section>
+
+<section class="panel" id="services" aria-label="Services" hidden>
+ <div>
+  <p>Print and pattern design: hand-painted, digital, repeat and placement prints.</p>
+  <p>Woven and knitted fabric development, from swatch to sample.</p>
+  <p>Collection design, technical drawings, styling and art direction for fashion and accessories.</p>
+  <p>Available for freelance projects and collaborations.</p>
+ </div>
+</section>
+
+<section class="panel" id="contact" aria-label="Contact" hidden>
+ <div>
+  <p><a href="mailto:buglemcincin@gmail.com">buglemcincin@gmail.com</a></p>
+ </div>
+</section>
+
+<section class="panel" id="credits" aria-label="Credits" hidden>
+ <div>
+  <p>All work on this website by Buğlem Çinçin: prints, fabrics, garments, collections and images.</p>
+  <p>Website by Oğuzcan Önver.</p>
+ </div>
+</section>
+<!-- ─────────────────────────────────────────────────── -->
+
+<nav aria-label="Sections">
+ <button type="button" data-panel="about" aria-expanded="false" aria-label="About">
+  <span>About</span>
+  <!-- button: ring + four holes -->
+  <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle cx="20" cy="20" r="11"/><circle class="dot" cx="16.5" cy="16.5" r="1.8"/><circle class="dot" cx="23.5" cy="16.5" r="1.8"/><circle class="dot" cx="16.5" cy="23.5" r="1.8"/><circle class="dot" cx="23.5" cy="23.5" r="1.8"/></svg>
+ </button>
+ <button type="button" data-panel="services" aria-expanded="false" aria-label="Services">
+  <span>Services</span>
+  <!-- scissors -->
+  <svg viewBox="0 0 40 40"><circle cx="11" cy="31" r="6"/><circle cx="29" cy="31" r="6"/><path d="M15 26.5 30 3M25 26.5 10 3"/></svg>
+ </button>
+ <button type="button" data-panel="contact" aria-expanded="false" aria-label="Contact">
+  <span>Contact</span>
+  <!-- needle and thread -->
+  <svg viewBox="0 0 40 40"><path d="M31 3 9 37"/><ellipse cx="28.6" cy="7.2" rx="1.6" ry="3.4" transform="rotate(33 28.6 7.2)"/><path d="M29 7c-12 1-22 8-15 15s14 1 9-5-14 4-17 15"/></svg>
+ </button>
+ <button type="button" data-panel="credits" aria-expanded="false" aria-label="Credits">
+  <span>Credits</span>
+  <!-- spool of thread -->
+  <svg viewBox="0 0 40 40"><path d="M7 4h26M7 36h26M11 4v32M29 4v32"/><path d="M11 10h18M11 16h18M11 22h18M11 28h18"/></svg>
+ </button>
+</nav>
+
+<script>
+{
+/* ── EDIT IMAGES HERE: files in /images, any order ── */
+const IMAGES = Array.from({length: 32}, (_, i) => `images/${String(i + 1).padStart(2, "0")}.jpg`);
+const ALT = "Work by Buğlem Çinçin";
+
+const wall = document.getElementById("wall");
+const els = IMAGES.map(src => {
+ const im = new Image();
+ im.src = src; im.alt = ALT; im.loading = "lazy"; im.decoding = "async";
+ im.addEventListener("load", () => { layout(); im.classList.add("in"); }, { once: true });
+ wall.appendChild(im);
+ return im;
+});
+
+/* seeded random so the collage is the same on every visit */
+function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+
+function layout() {
+ const W = wall.clientWidth, mobile = W < 700;
+ const r = rng(7);
+ const top = mobile ? 70 : 110, gap = mobile ? 40 : 70;
+ let y = top, side = 0;
+ els.forEach((im, i) => {
+  const ratio = im.naturalWidth ? im.naturalHeight / im.naturalWidth : 1.1;
+  let w;
+  if (mobile) {
+   w = W * (0.5 + r() * 0.22);
+   const x = side ? W - w - W * (0.04 + r() * 0.06) : W * (0.04 + r() * 0.06);
+   im.style.width = w + "px"; im.style.left = x + "px"; im.style.top = y + "px";
+   y += w * ratio + 36 + r() * 44;
+  } else {
+   w = Math.min(300, W * (0.12 + r() * 0.1));
+   if (ratio < 0.7) w *= 1.3;
+   /* three lanes: left, centre, right, cycling with jitter */
+   const lane = [0, 2, 1, 2, 0, 1][i % 6];
+   const laneX = [W * 0.04, W * 0.38, W * 0.68][lane];
+   const x = Math.max(16, Math.min(W - w - 16, laneX + (r() - 0.5) * W * 0.1));
+   im.style.width = w + "px"; im.style.left = x + "px"; im.style.top = y + "px";
+   y += w * ratio * (0.5 + r() * 0.35) + 60 + r() * 90;
+  }
+  side ^= 1;
+  im._bottom = parseFloat(im.style.top) + w * ratio;
+ });
+ const bottom = Math.max(...els.map(e => e._bottom || 0));
+ wall.style.height = bottom + 160 + "px";
+}
+layout();
+let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(layout, 120); });
+
+/* panels */
+const buttons = document.querySelectorAll("nav button");
+const panels = document.querySelectorAll(".panel");
+function show(id) {
+ panels.forEach(p => {
+  const on = p.id === id;
+  if (on) p.hidden = false;
+  requestAnimationFrame(() => p.classList.toggle("open", on));
+  if (!on) setTimeout(() => { if (!p.classList.contains("open")) p.hidden = true; }, 360);
+ });
+ buttons.forEach(b => b.setAttribute("aria-expanded", String(b.dataset.panel === id)));
+ history.replaceState(null, "", id ? "#" + id : location.pathname);
+}
+buttons.forEach(b => b.addEventListener("click", () => show(b.getAttribute("aria-expanded") === "true" ? null : b.dataset.panel)));
+panels.forEach(p => p.addEventListener("click", e => { if (!e.target.closest("a")) show(null); }));
+addEventListener("keydown", e => { if (e.key === "Escape") show(null); });
+const start = location.hash.slice(1);
+if (document.getElementById(start)?.classList.contains("panel")) show(start);
+}
+</script>
+</body>
+</html>
