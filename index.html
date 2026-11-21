@@ -39,12 +39,14 @@ nav button:hover span,nav button:focus-visible span,nav button[aria-expanded=tru
 nav button:focus-visible{outline:1px dotted var(--ink);outline-offset:6px;border-radius:50%}
 
 /* text overlay: blurred page, centred text */
-.panel{position:fixed;inset:0;z-index:35;display:flex;align-items:center;justify-content:center;padding:90px 24px 110px;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;cursor:pointer}
+.panel{position:fixed;inset:0;z-index:35;display:flex;align-items:safe center;overflow-y:auto;justify-content:center;padding:90px 24px 110px;background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;cursor:pointer}
 .panel.open{opacity:1;visibility:visible}
 .panel div{max-width:440px;text-align:center;cursor:auto}
 .panel p{margin:0 0 1.1em}
 .panel a{color:inherit;text-decoration:none}
 .panel a:hover{text-decoration:underline}
+.panel .label{margin:28px 0 6px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.panel .work a{text-decoration:underline;text-underline-offset:3px}
 .portrait{display:block;width:180px;height:auto;margin:0 auto 22px}
 .social{list-style:none;margin:6px 0 0;padding:0;display:flex;justify-content:center;gap:18px}
 .social a{display:block;width:28px;height:28px}
@@ -77,6 +79,13 @@ nav button:focus-visible{outline:1px dotted var(--ink);outline-offset:6px;border
   <p>Buğlem Çinçin is a fashion designer based in Istanbul: a multidisciplinary designer and maker with a background specialising in handbags and upcycled fashion, and a fashion AI visual and video creator.</p>
   <p>She holds a bachelor's (2016–2020) and a master's degree (2020–2023) in Textile and Fashion Design from Marmara University.</p>
   <p>Designer at Lems Studio (2019–2026), creating bags, notebooks, sketchbooks and other accessories. Fashion designer at Magnezyum (2020–2024), designing upcycled clothing and 3D fashion. Research assistant in Textile and Fashion Design at Doğuş University (2023–2025).</p>
+  <p class="label">Selected work</p>
+  <p class="work">
+   <a href="https://www.instagram.com/mag.nezyum/" target="_blank" rel="noopener">Magnezyum</a> — upcycled fashion<br>
+   <a href="https://www.instagram.com/lemsstudio/" target="_blank" rel="noopener">Lems Studio</a> — bags and accessories<br>
+   <a href="https://www.instagram.com/epicvenue/" target="_blank" rel="noopener">Epic Venue</a><br>
+   <a href="https://www.instagram.com/goodrootistanbul/" target="_blank" rel="noopener">Good Root Istanbul</a>
+  </p>
  </div>
 </section>
 
