@@ -23,6 +23,14 @@ body{font:14px/1.45 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smo
 .logo:hover text,.logo:focus-visible text{animation:spin 1.4s linear infinite}
 @keyframes spin{to{stroke-dashoffset:-34}}
 
+/* featured work: four instagram accounts above the collage */
+.featured{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:1040px;margin:0 auto;padding:118px 24px 10px;text-align:center}
+.featured a{display:flex;flex-direction:column;align-items:center;gap:4px;padding:22px 10px;color:var(--ink);text-decoration:none;border:2px dotted var(--ink);border-radius:999px;transition:background .25s,color .25s}
+.featured a:hover,.featured a:focus-visible{background:var(--ink);color:var(--bg)}
+.featured b{font-weight:400;font-size:17px;letter-spacing:.06em;text-transform:uppercase}
+.featured span{font-size:12px;opacity:.7}
+.featured i{font-style:normal;font-size:12px}
+
 /* collage */
 #wall{position:relative;width:100%}
 #wall img{position:absolute;display:block;height:auto;opacity:0;transition:opacity .6s}
@@ -55,6 +63,9 @@ nav button:focus-visible{outline:1px dotted var(--ink);outline-offset:6px;border
 .social a:hover{opacity:.55;text-decoration:none}
 
 @media (max-width:700px){
+ .featured{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:84px 14px 4px}
+ .featured a{border-radius:28px;padding:16px 8px}
+ .featured b{font-size:14px}
  .logo svg{height:32px}
  nav{gap:24px;bottom:16px}
  nav button,nav svg{width:34px;height:34px}
@@ -69,6 +80,13 @@ nav button:focus-visible{outline:1px dotted var(--ink);outline-offset:6px;border
  <svg viewBox="0 0 120 50" aria-hidden="true"><text x="60" y="42" text-anchor="middle">BÇ</text></svg>
  <span class="name">BUĞLEM ÇİNÇİN</span>
 </a>
+
+<section class="featured" aria-label="Selected work">
+ <a href="https://www.instagram.com/mag.nezyum/" target="_blank" rel="noopener"><b>Magnezyum</b><span>upcycled fashion</span><i>@mag.nezyum</i></a>
+ <a href="https://www.instagram.com/lemsstudio/" target="_blank" rel="noopener"><b>Lems Studio</b><span>bags and accessories</span><i>@lemsstudio</i></a>
+ <a href="https://www.instagram.com/epicvenue/" target="_blank" rel="noopener"><b>Epic Venue</b><span>product design, photography, styling</span><i>@epicvenue</i></a>
+ <a href="https://www.instagram.com/goodrootistanbul/" target="_blank" rel="noopener"><b>Good Root Istanbul</b><i>@goodrootistanbul</i></a>
+</section>
 
 <main id="wall" aria-label="Selected work"></main>
 
@@ -161,7 +179,7 @@ function rng(seed) { return () => { seed = (seed * 16807) % 2147483647; return (
 function layout() {
  const W = wall.clientWidth, mobile = W < 700;
  const r = rng(7);
- const top = mobile ? 64 : 80, gap = mobile ? 40 : 70;
+ const top = mobile ? 24 : 40, gap = mobile ? 40 : 70;
  let y = top, side = 0;
  els.forEach((im, i) => {
   const ratio = im.naturalWidth ? im.naturalHeight / im.naturalWidth : 1.1;
